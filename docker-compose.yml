@@ -4,9 +4,9 @@ networks:
   reaction:
     external:
       name: reaction.localhost
-  postgres-network:
-    external:
-      name: reaction.postgres.localhost  
+#   postgres-network:
+#     external:
+#       name: reaction.postgres.localhost  
 
 services:
 
@@ -16,7 +16,7 @@ services:
     depends_on:
       - postgres
     networks:
-      postgres-network:
+#       postgres-network:
       reaction:
     env_file: ".env"
     restart: on-failure
@@ -28,7 +28,7 @@ services:
       - hydra-migrate
       - postgres
     networks:
-      postgres-network:
+#       postgres-network:
       reaction:
     ports:
       # Public port
@@ -47,7 +47,7 @@ services:
       - POSTGRES_PASSWORD=changeme
       - POSTGRES_DB=hydra
     networks:
-      postgres-network:
+#       postgres-network:
       reaction:
     ports:
       - 5432:5432
